@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Search</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Search</h1>
+        <form id="employee-search-form">
+            <div class="form-group">
+                <label for="experience">Experience (years):</label>
+                <input type="number" id="experience" name="experience" min="0" placeholder="Enter experience">
+            </div>
+            <div class="form-group">
+                <label for="job-title">Job Title:</label>
+                <input type="text" id="job-title" name="job-title" placeholder="Enter job title">
+            </div>
+            <div class="form-group">
+                <label for="employee-rating">Employee Rating:</label>
+                <select id="employee-rating" name="employee-rating">
+                    <option value="">Select rating</option>
+                    <option value="5">5 stars</option>
+                    <option value="4">4 stars</option>
+                    <option value="3">3 stars</option>
+                    <option value="2">2 stars</option>
+                    <option value="1">1 star</option>
+                </select>
+            </div>
+            <button type="submit">Search</button>
+        </form>
+        <div id="search-results">
+            <!-- Search results will be displayed here -->
+        </div>
+    </div>
+</body>
+</html>
