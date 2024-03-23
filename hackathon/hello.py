@@ -6,7 +6,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/signup', methods=['POST'])
+@app.route('/Sign Up', methods=['POST'])
 def signup():
     email = request.form['email']
     password = request.form['password']
