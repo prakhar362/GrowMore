@@ -1,0 +1,28 @@
+.card1{
+    display: flex;
+    margin:300px 0 0 0;
+    text-align: center;
+    border:2px solid darkblue;
+    background-color: wheat;
+}
+.card1:hover{
+    box-shadow: 2px 2px 5px black;
+    transition-duration: 0.5s;
+}
+
+.card2{
+    display: flex;
+    margin:300px 0 0 0;
+    text-align: center;
+    border:2px solid darkblue;
+    background-color: wheat;
+}
+
+.card2:hover{
+    box-shadow: 2px 2px 5px black;
+    transition-duration: 0.5s;
+}
+
+body{
+    background-color:aqua
+}

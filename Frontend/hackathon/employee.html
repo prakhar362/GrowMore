@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Search</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Company Search</h1>
+        <form id="employee-search-form">
+            <div class="form-group">
+                <label for="experience">Location:</label>
+                <input type="text" id="location" name="location" min="0" placeholder="Enter location expected...">
+            </div>
+            <div class="form-group">
+                <label for="job-title">Job Title:</label>
+                <input type="text" id="job-title" name="job-title" placeholder="Enter job title...">
+            </div>
+            <div class="form-group">
+                <label for="employee-rating">Origin of company:</label>
+                <select id="employee-rating" name="employee-rating">
+                    <option value="">Select type of company</option>
+                    <option value="4">Forieign startup</option>
+                    <option value="3">Indian startup</option>
+                    <option value="2">Indian</option>
+                    <option value="1">MNC</option>
+                </select>
+            </div>
+           <button type="button" onclick="searchCompanies()">Search</button>
+        </form>
+        <div id="search-results">
+            <!-- Search results will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function searchCompanies() {
+            var location = document.getElementById("location").value;
+            var jobTitle = document.getElementById("job-title").value;
+            var origin = document.getElementById("employee-rating").value;
+
+            // Construct the search URL
+            var searchUrl = "http://localhost:8888/notebooks/Desktop/AI_20_KDG/One.ipynb";
+            searchUrl += "?location=" + encodeURIComponent(location);
+            searchUrl += "&job_title=" + encodeURIComponent(jobTitle);
+            searchUrl += "&origin=" + encodeURIComponent(origin);
+
+            // Redirect to the search URL
+            window.location.href = searchUrl;
+        }
+    </script>
+</body>
+</html>

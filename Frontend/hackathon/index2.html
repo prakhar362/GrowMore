@@ -3,7 +3,6 @@
 <head>
   <link rel="stylesheet" href="style2.css" />
   <title>Form</title>
-
 </head>
 <body>
   <div class="login-wrap">
@@ -13,19 +12,15 @@
       <div class="login-form">
         <div class="sign-in-htm">
           <div class="group">
-            <label for="user" class="label">Username</label>
-            <input id="user" type="text" class="input">
+            <label for="login-user" class="label">Username</label>
+            <input id="login-user" type="text" class="input">
           </div>
           <div class="group">
-            <label for="pass" class="label">Password</label>
-            <input id="pass" type="password" class="input" data-type="password">
+            <label for="login-pass" class="label">Password</label>
+            <input id="login-pass" type="password" class="input" data-type="password">
           </div>
           <div class="group">
-            <input id="check" type="checkbox" class="check" checked>
-            <label for="check"><span class="icon"></span> Keep me Signed in</label>
-          </div>
-          <div class="group">
-            <input type="submit" class="button" value="Sign In">
+            <input type="submit" class="button" value="Sign In" onclick="signIn()">
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
@@ -34,23 +29,23 @@
         </div>
         <div class="sign-up-htm">
           <div class="group">
-            <label for="user" class="label">Username</label>
-            <input id="user" type="text" class="input">
+            <label for="signup-user" class="label">Username</label>
+            <input id="signup-user" type="text" class="input">
           </div>
           <div class="group">
-            <label for="pass" class="label">Password</label>
-            <input id="pass" type="password" class="input" data-type="password">
+            <label for="signup-pass" class="label">Password</label>
+            <input id="signup-pass" type="password" class="input" data-type="password">
           </div>
           <div class="group">
-            <label for="pass" class="label">Repeat Password</label>
-            <input id="pass" type="password" class="input" data-type="password">
+            <label for="signup-repeat-pass" class="label">Repeat Password</label>
+            <input id="signup-repeat-pass" type="password" class="input" data-type="password">
           </div>
           <div class="group">
-            <label for="pass" class="label">Email Address</label>
-            <input id="pass" type="text" class="input">
+            <label for="signup-email" class="label">Email Address</label>
+            <input id="signup-email" type="text" class="input">
           </div>
           <div class="group">
-            <input type="submit" class="button" value="Sign Up">
+            <input type="submit" class="button" value="Sign Up" onclick="signUp()">
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
@@ -60,5 +55,76 @@
       </div>
     </div>
   </div>
+
+  <script>
+    function signUp() {
+      var username = document.getElementById('signup-user').value;
+      var password = document.getElementById('signup-pass').value;
+      var repeatPassword = document.getElementById('signup-repeat-pass').value;
+      var email = document.getElementById('signup-email').value;
+
+      if (password !== repeatPassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      var userDetails = {
+        username: username,
+        password: password,
+        email: email
+      };
+
+      localStorage.setItem('userDetails', JSON.stringify(userDetails));
+      alert("Sign up successful. You can now sign in.");
+      // After sign-up is successful
+      var username;
+      var password;
+      var email;
+      storeUserData(username, password, email);
+
+    }
+    function storeUserData(username, password, email) {
+      // Construct the user data string
+      var userData = "Username: " + username + "\n" +
+                     "Password: " + password + "\n" +
+                     "Email: " + email + "\n\n";
+  
+      // Create a Blob object containing the user data
+      var blob = new Blob([userData], { type: "text/plain;charset=utf-8" });
+  
+      // Create a temporary anchor element
+      var a = document.createElement("a");
+  
+      // Set the anchor's href attribute to the URL of the Blob object
+      a.href = URL.createObjectURL(blob);
+  
+      // Set the anchor's download attribute to specify the filename
+      a.download = "user_data.txt";
+  
+      // Programmatically trigger a click event on the anchor element
+      // This will prompt the user to download the text file
+      a.click();
+  }
+  
+    function signIn() {
+      var username = document.getElementById('login-user').value;
+      var password = document.getElementById('login-pass').value;
+
+      var storedUserDetails = localStorage.getItem('userDetails');
+      if (storedUserDetails) {
+        var userDetails = JSON.parse(storedUserDetails);
+        if (userDetails.username === username && userDetails.password === password) {
+          alert("Login successful!");
+
+          // Redirect to another HTML page
+          window.location.href = "mainrecruit.html"; // Change "anotherpage.html" to your desired page
+        } else {
+          alert("Invalid username or password.");
+        }
+      } else {
+        alert("No user registered. Please sign up.");
+      }
+    }
+  </script>
 </body>
 </html>

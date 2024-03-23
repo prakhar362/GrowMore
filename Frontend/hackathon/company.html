@@ -29,11 +29,29 @@
                     <option value="1">1 star</option>
                 </select>
             </div>
-            <button type="submit">Search</button>
+            <!-- Use onclick event to trigger the search when the button is clicked -->
+            <button type="button" onclick="searchEmployees()">Search</button>
         </form>
         <div id="search-results">
             <!-- Search results will be displayed here -->
         </div>
     </div>
+
+    <script>
+        function searchEmployees() {
+            var experience = document.getElementById("experience").value;
+            var jobTitle = document.getElementById("job-title").value;
+            var employeeRating = document.getElementById("employee-rating").value;
+
+            // Construct the search URL
+            var searchUrl = "http://localhost:8888/notebooks/Desktop/AI_20_KDG/two.ipynb";
+            searchUrl += "?experience=" + encodeURIComponent(experience);
+            searchUrl += "&job_title=" + encodeURIComponent(jobTitle);
+            searchUrl += "&employee_rating=" + encodeURIComponent(employeeRating);
+
+            // Redirect to the search URL
+            window.location.href = searchUrl;
+        }
+    </script>
 </body>
 </html>
