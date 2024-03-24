@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <div id="imageLinks">
+        <!-- Image link -->
+        <a href="i1.jpeg" class="btn btn-primary">Agriculture and Mining</a>
+        <a href="i2.jpeg" class="btn btn-primary">Education and Healthcare</a>
+        <a href="i3.jpeg" class="btn btn-primary">Government</a>
+        <a href="i4.jpeg" class="btn btn-primary">Self employed</a>
+        <a href="i5.jpeg" class="btn btn-primary">Office Services</a>
+
+    </div>
+</body>
+</html>
+
+
+    <script>
+        // Function to list all image files in a folder
+        function listImagesInFolder(folderPath) {
+            const fs = require('fs');
+            const path = require('path');
+            
+            fs.readdir(folderPath, (err, files) => {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+
+                const imageLinks = document.getElementById('imageLinks');
+                
+                files.forEach(file => {
+                    // Check if the file is an image
+                    const extension = path.extname(file).toLowerCase();
+                    if (extension === '.jpg' || extension === '.jpeg' || extension === '.png' || extension === '.gif') {
+                        // Create image link
+                        const imagePath = path.join(folderPath, file);
+                        const imageLink = document.createElement('a');
+                        imageLink.href = imagePath;
+                        imageLink.textContent = "Click me";
+                        imageLink.className = "btn btn-primary";
+                        imageLink.innerHTML += '<br>';
+                        imageLinks.appendChild(imageLink);
+                    }
+                });
+            });
+        }
+
+        // Call the function to list images in a folder
+        listImagesInFolder('images'); // Change 'images' to the name of your folder
+    </script>
+</body>
+</html>
