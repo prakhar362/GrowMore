@@ -1,17 +1,20 @@
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Newsletter</title>
-    </head>
-    <body>
-        <h1>Newsletter</h1>
-        <ul>
-    
-        </ul>
-    </body>
-    </html>
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker News</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Hacker News</h1>
+        {% for item in hacker_news %}
+            <div class="news-item">
+                <div class="news-content">
+                    <h2 class="news-title"><a href="{{ item.link }}">{{ item.title }}</a></h2>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
