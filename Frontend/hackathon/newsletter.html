@@ -3,28 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter</title>
+    <title>Hacker News Newsletter</title>
 </head>
 <body>
-    <header>
-        <h1>Newsletter</h1>
-        <button onclick="showNewsletter()">Show Newsletter</button>
-    </header>
-    <div class="container" id="newsletter-content">
-        <!-- Newsletter content will be inserted here -->
-    </div>
-
-    <script>
-        function showNewsletter() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("newsletter-content").innerHTML = this.responseText;
-                }
-            };
-            xhttp.open("GET", "/get_newsletter", true);
-            xhttp.send();
-        }
-    </script>
+    <h1>Hacker News Newsletter</h1>
+    <ul>
+        {% for item in hn_data %}
+            <li><a href="{{ item.link }}">{{ item.title }}</a> - {{ item.votes }} votes</li>
+        {% endfor %}
+    </ul>
+    <p>Thank you for subscribing to our newsletter!</p>
 </body>
 </html>
