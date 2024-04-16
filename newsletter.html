@@ -1,20 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Hacker News</h1>
-        {% for item in hacker_news %}
-            <div class="news-item">
-                <div class="news-content">
-                    <h2 class="news-title"><a href="{{ item.link }}">{{ item.title }}</a></h2>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</body>
-</html>
+import requests
+from bs4 import BeautifulSoup
+from flask import Flask
+
+app = Flask(__name__)
+
+# Make requests and parse HTML
+res = requests.get('https://news.ycombinator.com/news')
+res2 = requests.get('https://news.ycombinator.com/news?p=2')
+soup = BeautifulSoup(res.text, 'html.parser')
+soup2 = BeautifulSoup(res2.text, 'html.parser')
+
+# Extract links and subtext
+links = soup.select('.titleline > a') 
+subtext = soup.select('.subtext')
+links2 = soup2.select('.titleline > a') 
+subtext2 = soup2.select('.subtext')
+
+mega_links = links + links2
+mega_subtext = subtext + subtext2
+
+# Sort stories by votes
+def sort_stories_by_votes(hnlist):
+    return sorted(hnlist, key=lambda k: k['votes'], reverse=True)
+
+# Create custom Hacker News list
+def create_custom_hn(links, subtext):
+    hn = []
+    for idx, item in enumerate(links):
+        title = item.getText()
+        href = item.get('href', None)
+        vote = subtext[idx].select('.score')
+        if len(vote):
+            points = int(vote[0].getText().replace(' points', ''))
+            if points > 99:
+                hn.append({'title': title, 'link': href, 'votes': points})
+    return sort_stories_by_votes(hn)
+
+@app.route('/')
+def hacker_news():
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hacker News</title>
+    </head>
+    <body>
+        <h1>Top Stories on Hacker News (Votes > 50)</h1>
+        <ul>
+    """
+    for story in create_custom_hn(mega_links, mega_subtext):
+        html_content += f"<li><a href='{story['link']}'>{story['title']}</a> - {story['votes']} votes</li>"
+
+    html_content += """
+        </ul>
+    </body>
+    </html>
+    """
+    return html_content
+
+if __name__ == '__main__':
+    app.run(debug=True)
