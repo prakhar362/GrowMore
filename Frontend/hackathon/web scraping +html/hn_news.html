@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker News</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        #news-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #news-list li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        #news-list li:last-child {
+            border-bottom: none;
+        }
+
+        #news-list li a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        #news-list li a:hover {
+            text-decoration: underline;
+        }
+
+        #news-list li .votes {
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hacker News Articles</h1>
+    <ul id="news-list"></ul>
+
+    <script>
+        // Function to fetch JSON data and render it on the page
+        async function fetchNews() {
+            const response = await fetch('hn_news.json'); // Assuming the JSON file is in the same directory
+            const data = await response.json();
+
+            const newsList = document.getElementById('news-list');
+
+            data.forEach(item => {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = item.link;
+                link.textContent = item.title;
+                listItem.textContent = ` - Votes: ${item.votes}`;
+                listItem.appendChild(link);
+                newsList.appendChild(listItem);
+            });
+        }
+
+        // Call the function to fetch and render news when the page loads
+        fetchNews();
+    </script>
+</body>
+</html>
