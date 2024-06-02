@@ -2,6 +2,7 @@ Start the code from index.html
 
 To view:https://prakhar362.github.io/GrowMore/
 GROW MORE
+Contributers
 
 ******Message For Contributers:*******
 **1.Manually Triggered Update:**
