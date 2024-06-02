@@ -9,7 +9,63 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+<style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            
+        }
+        .w3-display-container {
+            position: relative;
+            width: 100%;
+            min-height: 350px;
+            max-height: 600px;
+            overflow: hidden;
+        }
+        .w3-display-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .top-left {
+            position: absolute;
+            display: inline-flex;
+            top: 50%;
+            left: 4.5px;
+            color: white;
+            font-size: 150px;
+            font-family: "Style Script", cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid white; /* Cursor effect */
+            animation: typing 3.5s steps(30, end) forwards, blink-caret 3.5s step-end forwards;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+        }
+        @media screen and (max-width: 768px) {
+            .top-left {
+                font-size: 75px;
+                left: 4px;
+                top: 120px;
+            }
+        }
+</style>
+
 </head>
+
 <body id="myPage">
 
 <!-- Sidebar on click -->
@@ -59,8 +115,10 @@
 
 <!-- Image Header -->
 <div class="w3-display-container w3-animate-opacity">
-  <img src="Frontend\hackathon\bg.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
-  <div class="w3-container w3-display-bottomleft w3-margin-bottom">  
+  <img src="Frontend/hackathon/bg.jpg" alt="boat">
+  <div class="top-left" id="typing-text">Grow More</div>
+  <div class="w3-container w3-display-bottomleft w3-margin-bottom"> 
+      <!-- Additional content if needed -->
   </div>
 </div>
 
@@ -270,6 +328,17 @@
 
 <!-- Image of location/map -->
 <img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%;">
+<script>
+  function resetAnimation() {
+    const textElement = document.getElementById('typing-text');
+    textElement.style.animation = 'none';
+    void textElement.offsetWidth; // Trigger reflow to restart the animation
+    textElement.style.animation = 'typing 3.5s steps(30, end) forwards, blink-caret 3.5s step-end forwards';
+  }
+  
+  setInterval(resetAnimation, 5000); // Reset every 5 seconds
+</script>
+
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
@@ -288,6 +357,7 @@
 </footer>
 
 <script>
+
 // Script for side navigation
 function w3_open() {
   var x = document.getElementById("mySidebar");
