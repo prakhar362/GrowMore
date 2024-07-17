@@ -1,0 +1,112 @@
+[
+    {
+        "title": "Import and Export Markdown in Google Docs",
+        "link": "https://workspaceupdates.googleblog.com/2024/07/import-and-export-markdown-in-google-docs.html",
+        "votes": 123
+    },
+    {
+        "title": "Darwin Machines",
+        "link": "https://vedgie.net/writing/darwin_machines.md",
+        "votes": 77
+    },
+    {
+        "title": "XLSTMTime: Long-Term Time Series Forecasting with xLSTM",
+        "link": "https://arxiv.org/abs/2407.10240",
+        "votes": 174
+    },
+    {
+        "title": "Java Virtual Threads: A Case Study",
+        "link": "https://www.infoq.com/articles/java-virtual-threads-a-case-study/",
+        "votes": 68
+    },
+    {
+        "title": "Optimizing a bignum library for fun",
+        "link": "https://austinhenley.com/blog/bignum2.html",
+        "votes": 96
+    },
+    {
+        "title": "I am starting an AI+Education company",
+        "link": "https://twitter.com/karpathy/status/1813263734707790301",
+        "votes": 654
+    },
+    {
+        "title": "The golden age of scammers: AI-powered phishing",
+        "link": "https://www.mailgun.com/blog/email/ai-phishing/",
+        "votes": 65
+    },
+    {
+        "title": "Codestral Mamba",
+        "link": "https://mistral.ai/news/codestral-mamba/",
+        "votes": 407
+    },
+    {
+        "title": "Convex Architecture Handbook 1984 [pdf]",
+        "link": "http://bitsavers.informatik.uni-stuttgart.de/pdf/convex/080-000120-000_CONVEX_Architecture_Handbook_1984.pdf",
+        "votes": 51
+    },
+    {
+        "title": "Deconstructing the Role-Playing Video Game",
+        "link": "https://olano.dev/blog/deconstructing-the-role-playing-videogame/",
+        "votes": 113
+    },
+    {
+        "title": "Johannes Hartlieb's Book of Herbs (1462)",
+        "link": "https://publicdomainreview.org/collection/hartlieb-book-of-herbs/",
+        "votes": 90
+    },
+    {
+        "title": "Stop Microsoft users sending 'reactions' to email by adding a postfix header",
+        "link": "https://neilzone.co.uk/2024/07/attempting-to-stop-microsoft-users-sending-reactions-to-email-from-me-by-adding-a-postfix-header/",
+        "votes": 196
+    },
+    {
+        "title": "Story points are pointless, measure queues",
+        "link": "https://www.brightball.com/articles/story-points-are-pointless-measure-queues",
+        "votes": 210
+    },
+    {
+        "title": "Inside an IBM/Motorola mainframe controller chip from 1981",
+        "link": "http://www.righto.com/2024/07/ibm-3274-keystone-chip.html",
+        "votes": 100
+    },
+    {
+        "title": "Show HN: Magic-cli \u2013 A copilot for your command line",
+        "link": "https://github.com/guywaldman/magic-cli",
+        "votes": 87
+    },
+    {
+        "title": "Exo: Run your own AI cluster at home with everyday devices",
+        "link": "https://github.com/exo-explore/exo",
+        "votes": 382
+    },
+    {
+        "title": "Run CUDA, unmodified, on AMD GPUs",
+        "link": "https://docs.scale-lang.com/",
+        "votes": 1195
+    },
+    {
+        "title": "Making Elizabethan plays understandable and fun to read",
+        "link": "http://elizabethandrama.org/",
+        "votes": 60
+    },
+    {
+        "title": "Decoding DME aircraft radio navigation system with the LimeSDR",
+        "link": "https://destevez.net/2024/07/recording-dme-with-the-limesdr/",
+        "votes": 109
+    },
+    {
+        "title": "Automated Test-Case Reduction",
+        "link": "https://www.cs.cornell.edu/~asampson/blog/autoreduction.html",
+        "votes": 89
+    },
+    {
+        "title": "Ly: Display Manager with Console UI",
+        "link": "https://github.com/fairyglade/ly",
+        "votes": 86
+    },
+    {
+        "title": "Show HN: Horizon \u2013 Private alternative to Imgur",
+        "link": "https://horizon.pics",
+        "votes": 319
+    }
+]
